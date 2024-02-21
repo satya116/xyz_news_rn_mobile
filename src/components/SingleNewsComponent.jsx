@@ -1,23 +1,53 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native'
 import React from 'react'
 import NewsImageContainer from './NewsImageContainer'
 import ShortNewsComponent from './ShortNewsComponent';
 
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 
+import Carousel from 'react-native-snap-carousel';
 
-const SingleNewsComponent = ({}) => {
+
+const renderItem = ({ item }) => {
   return (
-    <View>
-      <NewsImageContainer  />
-      <ShortNewsComponent  />
-      <SignedIn>
-          <Text>You are Signed in</Text>
-        </SignedIn>
-        <SignedOut>
+    <View style={styles.item}>
+      <NewsImageContainer />
+      <ShortNewsComponent />
+      {/* <SignedIn>
+        <Text>You are Signed in</Text>
+      </SignedIn> */}
+      {/* <SignedOut>
         <Text>You are Signed out</Text>
-        </SignedOut>
+        </SignedOut> */}
     </View>
+  );
+};
+
+const SingleNewsComponent = ({ }) => {
+
+  const data = [
+    { title: 'Item 1' },
+    { title: 'Item 2' },
+    { title: 'Item 3' },
+    { title: 'Item 4' },
+    { title: 'Item 5' },
+  ];
+
+  return (
+    <ScrollView>
+
+      <Carousel
+        data={data}
+        renderItem={renderItem}
+        sliderHeight={Dimensions.get('window').height} // Adjust sliderHeight to fit the screen
+        itemHeight={Dimensions.get('window').height} // Customize item height as needed
+        layout={'default'}
+        loop
+        vertical // Set vertical property to true
+
+      />
+
+    </ScrollView>
   )
 }
 

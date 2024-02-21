@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet,StatusBar, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import SingleNewsComponent from '../components/SingleNewsComponent';
 
@@ -16,9 +16,10 @@ const NewsScrollScreen = () => {
     // console.log(news);
 
     return (
-        <View>
+        <SafeAreaView>
+            <StatusBar />
             <SingleNewsComponent />
-        </View>
+        </SafeAreaView>
     )
 }
 

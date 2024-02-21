@@ -17,7 +17,7 @@ const NewsImageContainer = () => {
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 10,
+        borderRadius: 0,
         overflow: 'hidden',
         backgroundColor: '#fff',
         shadowColor: '#000',
