@@ -35,7 +35,6 @@ const SingleNewsComponent = ({ }) => {
 
   return (
     <ScrollView>
-
       <Carousel
         data={data}
         renderItem={renderItem}
@@ -44,9 +43,7 @@ const SingleNewsComponent = ({ }) => {
         layout={'default'}
         loop
         vertical // Set vertical property to true
-
       />
-
     </ScrollView>
   )
 }

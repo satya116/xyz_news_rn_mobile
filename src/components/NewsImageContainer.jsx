@@ -5,7 +5,6 @@ import React from 'react';
 const NewsImageContainer = () => {
 
     const onPress = () => {
-
     }
 
     return (
@@ -34,6 +33,5 @@ const styles = StyleSheet.create({
         aspectRatio: 16 / 9, // Adjust aspect ratio according to your preference
     },
 });
-
 
 export default NewsImageContainer

@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import NewsScrollScreen from './src/screen/NewsScrollScreen';
 import NewsDetailScreen from './src/screen/NewsDetailScreen';
@@ -9,9 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import React from "react";
-import { SafeAreaView, } from "react-native";
 import { ClerkProvider } from "@clerk/clerk-expo";
-import Constants from "expo-constants"
+// import Constants from "expo-constants"
 
 // export default function App() {
 //   return (
@@ -39,17 +37,14 @@ export default function App() {
     <>
       <ClerkProvider publishableKey={"pk_test_ZmFjdHVhbC1ndXBweS04OS5jbGVyay5hY2NvdW50cy5kZXYk"}>
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName='NewsDetailScreen'>
             <Stack.Screen name="NewsScrollScreen" options={{ headerShown: false }} component={NewsScrollScreen} />
-            <Stack.Screen name="NewsDetailScreen" component={NewsDetailScreen} />
+            <Stack.Screen name="NewsDetailScreen" options={{ headerShown: false }} component={NewsDetailScreen} />
             <Stack.Screen name="UserPreferenceScreen" component={UserPreferenceScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ClerkProvider>
-
-
     </>
-
   );
 }
 

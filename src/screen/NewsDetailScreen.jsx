@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, StatusBar, Text, View } from 'react-native'
 import React from 'react'
+import NewsImageContainer from '../components/NewsImageContainer'
+import DetailNewsComponent from '../components/DetailNewsComponent'
 
 const NewsDetailScreen = () => {
   return (
-    <View>
-      <Text>NewsDetailScreen</Text>
-    </View>
+    <SafeAreaView>
+      <StatusBar />
+      <DetailNewsComponent />
+    </SafeAreaView>
   )
 }
 
