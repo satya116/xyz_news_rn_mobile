@@ -35,7 +35,7 @@ export default function App() {
   console.log("api key", process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY);
   return (
     <>
-      <ClerkProvider publishableKey={"pk_test_ZmFjdHVhbC1ndXBweS04OS5jbGVyay5hY2NvdW50cy5kZXYk"}>
+      <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='NewsDetailScreen'>
             <Stack.Screen name="NewsScrollScreen" options={{ headerShown: false }} component={NewsScrollScreen} />
