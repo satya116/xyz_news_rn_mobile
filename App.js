@@ -10,6 +10,8 @@ const Stack = createNativeStackNavigator();
 
 import React from "react";
 import { ClerkProvider } from "@clerk/clerk-expo";
+import OnboardingScreen from './src/screen/OnBoardingScreen';
+import CreateNewsScreen from './src/screen/team_screen/CreateNewsScreen';
 // import Constants from "expo-constants"
 
 // export default function App() {
@@ -33,15 +35,15 @@ import { ClerkProvider } from "@clerk/clerk-expo";
 
 export default function App() {
 
-  console.log("api key", process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY);
   return (
     <>
       <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-        {/* <GestureHandlerRootView> */}
         <NavigationContainer>
           <Stack.Navigator initialRouteName='NewsScrollScreen'>
             <Stack.Screen name="NewsScrollScreen" options={{ headerShown: false }} component={NewsScrollScreen} />
             <Stack.Screen name="NewsDetailScreen" options={{ headerShown: false }} component={NewsDetailScreen} />
+            <Stack.Screen name="OnboardingScreen" options={{ headerShown: false }} component={OnboardingScreen} />
+            <Stack.Screen name="CreateNewsScreen" options={{ headerShown: false }} component={CreateNewsScreen} />
             <Stack.Screen name="UserPreferenceScreen" component={UserPreferenceScreen} />
           </Stack.Navigator>
         </NavigationContainer>

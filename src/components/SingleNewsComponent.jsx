@@ -4,7 +4,7 @@ import NewsImageContainer from './NewsImageContainer'
 import ShortNewsComponent from './ShortNewsComponent';
 
 // import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
-import { Gesture } from 'react-native-gesture-handler';
+// import { Gesture } from 'react-native-gesture-handler';
 
 
 
@@ -21,6 +21,7 @@ const renderItem = ({ item }) => {
       {/* <SignedOut>
         <Text>You are Signed out</Text>
         </SignedOut> */}
+        {/* details button should be here */}
     </View>
   );
 };
