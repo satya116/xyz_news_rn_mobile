@@ -8,11 +8,8 @@ const NewsScrollScreen = () => {
 
     // const [loading, setLoading] = useState(true);
     // const [news, setNews] = useState([]);
-
     // useEffect(() => {
-
     // }, []);
-
     // console.log(news);
 
     return (
