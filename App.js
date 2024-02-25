@@ -4,8 +4,7 @@ import NewsScrollScreen from './src/screen/NewsScrollScreen';
 import NewsDetailScreen from './src/screen/NewsDetailScreen';
 import UserPreferenceScreen from './src/screen/UserPreferenceScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +37,7 @@ export default function App() {
   return (
     <>
       <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-        <GestureHandlerRootView>
+        {/* <GestureHandlerRootView> */}
         <NavigationContainer>
           <Stack.Navigator initialRouteName='NewsScrollScreen'>
             <Stack.Screen name="NewsScrollScreen" options={{ headerShown: false }} component={NewsScrollScreen} />
@@ -46,7 +45,7 @@ export default function App() {
             <Stack.Screen name="UserPreferenceScreen" component={UserPreferenceScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-        </GestureHandlerRootView>
+        {/* </GestureHandlerRootView> */}
       </ClerkProvider>
     </>
   );
