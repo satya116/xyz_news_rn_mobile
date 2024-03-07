@@ -1,10 +1,8 @@
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import NewsScrollScreen from './src/screen/NewsScrollScreen';
 import NewsDetailScreen from './src/screen/NewsDetailScreen';
 import UserPreferenceScreen from './src/screen/UserPreferenceScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,32 +10,14 @@ import React from "react";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import OnboardingScreen from './src/screen/OnBoardingScreen';
 import CreateNewsScreen from './src/screen/team_screen/CreateNewsScreen';
-// import Constants from "expo-constants"
-
-// export default function App() {
-//   return (
-//     <ClerkProvider publishableKey={Constants.expoConfig.extra.clerkPublishableKey}>
-//       <SafeAreaView style={styles.container}>
-//         <Text>Hello world!</Text>
-//       </SafeAreaView>
-//     </ClerkProvider>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
 
 export default function App() {
+  // TODO:
+  const CLERK_PUBLISHABLE_KEY = "pk_test_ZmFjdHVhbC1ndXBweS04OS5jbGVyay5hY2NvdW50cy5kZXYk" || "will need to be set in production env";
 
   return (
     <>
-      <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName='NewsScrollScreen'>
             <Stack.Screen name="NewsScrollScreen" options={{ headerShown: false }} component={NewsScrollScreen} />
@@ -52,12 +32,3 @@ export default function App() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

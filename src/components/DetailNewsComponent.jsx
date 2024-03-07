@@ -16,15 +16,15 @@ const DetailNewsComponent = ({ }) => {
 
     const [news, setnews] = useState(initialState);
 
-    useEffect(() => {
-        const dd = async () => {
-            let allnews = await getAllNews();
-            setnews(JSON.parse(JSON.stringify(allnews)));
-        }
-        dd();
+    // useEffect(() => {
+    //     const dd = async () => {
+    //         let allnews = await getAllNews();
+    //         setnews(JSON.parse(JSON.stringify(allnews)));
+    //     }
+    //     dd();
 
-    }, []);
-    console.log(news);
+    // }, []);
+    // console.log(news);
 
     // console.log(news.data[0]["news_title"]);
     // console.log(news.data[0].news_title);
