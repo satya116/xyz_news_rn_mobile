@@ -5,7 +5,8 @@ const getAllNews = async () => {
     let allnews;
     try {
         allnews = await axios.get('http://192.168.29.149:5000/api/news');
-        console.log("Data retrieved", allnews.data);
+        // console.log("Data retrieved", allnews);
+        return allnews.data;
 
     } catch (error) {
 
