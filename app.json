@@ -30,7 +30,9 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.satyaram116.xyz_news_rn_mobile"
+      "package": "com.satyaram116.xyz_news_rn_mobile",
+      "permissions": ["android.permission.INTERNET"],
+      "usesCleartextTraffic": true
     },
     "web": {
       "favicon": "./assets/favicon.png"

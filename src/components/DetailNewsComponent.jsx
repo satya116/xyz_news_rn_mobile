@@ -20,7 +20,7 @@ const DetailNewsComponent = ({ }) => {
     const route = useRoute();
 
     const newsItem = route.params;
-    console.log("let see", newsItem);
+    // console.log("let see", newsItem);
 
 
     return (

@@ -6,13 +6,11 @@ import ShortNewsComponent from './ShortNewsComponent';
 // import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 // import { Gesture } from 'react-native-gesture-handler';
 
-
-
 import Carousel from 'react-native-snap-carousel';
 import getAllNews from '../api/news';
 
 const renderItem = ({ item }) => {
-  console.log("renderItem", item);
+  // console.log("renderItem", item);
   return (
     <View style={styles.item}>
       <NewsImageContainer item={item} />
@@ -54,11 +52,12 @@ const SingleNewsComponent = ({ }) => {
   useEffect(() => {
     const dd = async () => {
       let allnews = await getAllNews();
-      console.log("all news,", allnews.data);
+      // console.log("all news,", allnews.data);
+      setNewsState(newsInitialState.isFinished);
       setNews(JSON.parse(JSON.stringify(allnews.data)));
     }
     dd();
-  }, []);
+  }, [newsState]);
 
   return (
     <>
