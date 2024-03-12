@@ -6,27 +6,18 @@ import { useRoute } from '@react-navigation/native';
 
 const DetailNewsComponent = ({ }) => {
 
-    let initialState = {
-        "data": [
-            {
-                "news_title": "",
-                "detail_news": "",
-            }
-        ]
-    }
-
     // const [news, setnews] = useState(initialState);
 
     const route = useRoute();
 
     const newsItem = route.params;
-    // console.log("let see", newsItem);
+    console.log("let see", newsItem);
 
 
     return (
         <>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <NewsImageContainer />
+                <NewsImageContainer newsImageURL={newsItem.news_image_url} />
                 <View style={{ marginHorizontal: 20 }}>
                     <Text style={{ paddingTop: 10, fontSize: 22, fontWeight: '600' }} >
                         {/* {news.data[0]["news_title"]} */}
@@ -42,14 +33,9 @@ const DetailNewsComponent = ({ }) => {
                 </View>
 
 
-
-
-
-
-                <View>
+                <View style={{padding: 20}}>
                     <Text>Team Corner</Text>
                     <ButtonCompo buttonTitle="Join us" />
-
                 </View>
             </ScrollView>
         </>

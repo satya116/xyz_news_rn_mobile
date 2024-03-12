@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Image, StyleSheet, Text } from 'react-native';
 // import ImagePicker from 'react-native-image-picker';
 import * as ImagePicker from 'expo-image-picker';
+import { createNews } from '../../api/news';
 
 const CreateNewsScreen = () => {
     const [newsTitle, setNewsTitle] = useState('');
     const [newsInShort, setNewsInShort] = useState('');
     const [newsInDetail, setNewsInDetail] = useState('');
+    const [adminToken, setAdminToken] = useState('');
+
     const [newsImage, setNewsImage] = useState(null);
     const [image, setImage] = useState(null);
+
+    const [createNewsResp, setCreateNewsResp] = useState(false);
 
     const handleImageUpload = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -48,15 +53,23 @@ const CreateNewsScreen = () => {
         // and set the selected image to the state variable 'newsImage'
     };
 
-    const handleSubmit = () => {
-        // Implement submission logic
-        // This function should submit the news data (title, short description, detailed description, and image)
-        // to your backend server or perform any other required action
+
+
+
+    const handleSubmit = async () => {
+        console.log("Handle Submit");
+
+        let resp = await createNews();
+
+        if (resp.success === true) {
+            setCreateNewsResp(true);
+        }
+
     };
 
     return (
         <View style={styles.container}>
-            <Text style={{ marginVertical: 22, fontSize: 25, fontWeight: "500"}}>Create your news here  </Text>
+            <Text style={{ marginVertical: 22, fontSize: 25, fontWeight: "500" }}>Create your news here  </Text>
             <TextInput
                 style={styles.input}
                 placeholder="Enter news title"
@@ -77,15 +90,22 @@ const CreateNewsScreen = () => {
                 onChangeText={setNewsInDetail}
                 multiline
             />
-
-
-
+            <TextInput
+                style={[styles.input,]}
+                placeholder="ADMIN TOKEN"
+                value={adminToken}
+                onChangeText={setNewsInDetail}
+            />
 
             <View style={styles.imageContainer}>
                 {/* {newsImage && <Image source={{ uri: newsImage }} style={styles.image} />} */}
                 <Button title="Upload Image" onPress={handleImageUpload} />
             </View>
             <Button title="Submit" onPress={handleSubmit} />
+
+            {
+                createNewsResp && <Text> News created successfully</Text>
+            }
         </View>
     );
 };
@@ -95,7 +115,7 @@ const styles = StyleSheet.create({
         height: "100%",
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'start',
         alignItems: 'start',
         padding: 20,
     },

@@ -1,26 +1,16 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { StyleSheet, View, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import NewsImageContainer from './NewsImageContainer'
 import ShortNewsComponent from './ShortNewsComponent';
-
-// import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
-// import { Gesture } from 'react-native-gesture-handler';
-
 import Carousel from 'react-native-snap-carousel';
-import getAllNews from '../api/news';
+import {getAllNews} from '../api/news';
+import NewsImageContainerInScrollScreen from './NewsImageContainerInScrollScreen';
 
 const renderItem = ({ item }) => {
   // console.log("renderItem", item);
   return (
     <View style={styles.item}>
-      <NewsImageContainer item={item} />
+      <NewsImageContainerInScrollScreen item={item} />
       <ShortNewsComponent item={item} />
-      {/* <SignedIn>
-        <Text>You are Signed in</Text>
-      </SignedIn> */}
-      {/* <SignedOut>
-        <Text>You are Signed out</Text>
-        </SignedOut> */}
       {/* details button should be here */}
     </View>
   );
@@ -35,7 +25,8 @@ const SingleNewsComponent = ({ }) => {
       "news_title": "",
       "created_by": "",
       "news_in_short": "",
-      "news_in_detail": ""
+      "news_in_detail": "",
+      "news_image_url": ""
     }
   ]
 

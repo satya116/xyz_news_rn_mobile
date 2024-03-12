@@ -2,7 +2,7 @@ import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 
-const NewsImageContainer = ({newsImageURL}) => {
+const NewsImageContainerInScrollScreen = ({ item }) => {
 
 
     const onPress = () => {
@@ -10,7 +10,7 @@ const NewsImageContainer = ({newsImageURL}) => {
 
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
-            <Image alt='kjkghj' src={newsImageURL || ""}  style={styles.image} />
+            <Image alt='newsImage' src={item.news_image_url || ""} style={styles.image} />
         </TouchableOpacity>
     )
 }
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default NewsImageContainer
+export default NewsImageContainerInScrollScreen
