@@ -2,23 +2,25 @@ import { StyleSheet, View, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import ShortNewsComponent from './ShortNewsComponent';
 import Carousel from 'react-native-snap-carousel';
-import {getAllNews} from '../api/news';
+import { getAllNews } from '../api/news';
 import NewsImageContainerInScrollScreen from './NewsImageContainerInScrollScreen';
+import ButtonCompo from './ButtonCompo';
 
 const renderItem = ({ item }) => {
-  // console.log("renderItem", item);
+
   return (
-    <View style={styles.item}>
-      <NewsImageContainerInScrollScreen item={item} />
-      <ShortNewsComponent item={item} />
-      {/* details button should be here */}
+    <View style={{ display: "flex", flex: 1, flexDirection: "column", justifyContent: "space-between" }}>
+      <View>
+        <NewsImageContainerInScrollScreen item={item} />
+        <ShortNewsComponent item={item} />
+        {/* buttonOnPress={() => goToDetailsScreen(item)} */}
+      </View>
+      <ButtonCompo item={item} buttonTitle={"Details"} marginHorizontal={20} marginBottom={20}  />
     </View>
   );
 };
 
 const SingleNewsComponent = ({ }) => {
-
-  /////
 
   let initialState = [
     {
@@ -60,7 +62,7 @@ const SingleNewsComponent = ({ }) => {
         sliderHeight={Dimensions.get('window').height} // Adjust sliderHeight to fit the screen
         itemHeight={Dimensions.get('window').height} // Customize item height as needed
         layout={'default'}
-        loop
+        loop={false}
         vertical // Set vertical property to true
       />
     </>
@@ -69,4 +71,8 @@ const SingleNewsComponent = ({ }) => {
 
 export default SingleNewsComponent
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  item: {
+
+  }
+})

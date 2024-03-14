@@ -1,8 +1,9 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react';
 import NewsImageContainer from './NewsImageContainer';
-import ButtonCompo from "./ButtonCompo";
+// import ButtonCompo from "./ButtonCompo";
 import { useRoute } from '@react-navigation/native';
+import ButtonCompo2 from './ButtonCompo2';
 
 const DetailNewsComponent = ({ }) => {
 
@@ -13,11 +14,10 @@ const DetailNewsComponent = ({ }) => {
     const newsItem = route.params;
     console.log("let see", newsItem);
 
-
     return (
         <>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <NewsImageContainer newsImageURL={newsItem.news_image_url} />
+                <NewsImageContainer newsImageURL={newsItem?.news_image_url} />
                 <View style={{ marginHorizontal: 20 }}>
                     <Text style={{ paddingTop: 10, fontSize: 22, fontWeight: '600' }} >
                         {/* {news.data[0]["news_title"]} */}
@@ -35,8 +35,12 @@ const DetailNewsComponent = ({ }) => {
 
                 <View style={{padding: 20}}>
                     <Text>Team Corner</Text>
-                    <ButtonCompo buttonTitle="Join us" />
+                    <ButtonCompo2 buttonTitle="Join us" />
+
+                    {/* <ButtonCompo2 /> */}
                 </View>
+
+
             </ScrollView>
         </>
     )

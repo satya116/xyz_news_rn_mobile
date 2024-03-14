@@ -10,7 +10,7 @@ const NewsImageContainerInScrollScreen = ({ item }) => {
 
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
-            <Image alt='newsImage' src={item.news_image_url || ""} style={styles.image} />
+            <Image alt='newsImage' src={item?.news_image_url || ""} style={styles.image} />
         </TouchableOpacity>
     )
 }

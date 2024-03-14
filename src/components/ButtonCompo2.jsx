@@ -3,22 +3,22 @@ import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-const ButtonCompo = ({item ,buttonTitle, buttonIcon, buttonBgColor, buttonBorderColor, buttonOnPress, marginHorizontal=20, marginBottom}) => {
+const ButtonCompo2 = ({item ,buttonTitle, buttonIcon, buttonBgColor, buttonBorderColor, buttonOnPress, marginHorizontal=0, marginBottom}) => {
     const navigation = useNavigation();
 
-    const goToDetailsScreen = (item) => {
-        navigation.navigate('NewsDetailScreen', item); // Replace 'DetailsScreen' with your actual screen name
+    const goToDetailsScreen = () => {
+        navigation.navigate('CreateNewsScreen'); // Replace 'DetailsScreen' with your actual screen name
     };
 
     return (
-        <TouchableOpacity style={{ marginHorizontal: marginHorizontal, marginBottom: marginBottom, ...styles.button}} onPress={() => goToDetailsScreen(item)}>
+        <TouchableOpacity style={{ marginHorizontal: marginHorizontal, marginBottom: marginBottom, ...styles.button}} onPress={() => goToDetailsScreen()}>
             <Text style={styles.buttonText}>{buttonTitle}</Text>
             <MaterialCommunityIcons name="arrow-right" size={24} color="green" />
         </TouchableOpacity>
     )
 }
 
-export default ButtonCompo
+export default ButtonCompo2
 
 const styles = StyleSheet.create({
     button: {

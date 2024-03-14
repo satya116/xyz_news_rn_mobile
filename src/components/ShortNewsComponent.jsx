@@ -42,10 +42,10 @@ const ShortNewsComponent = ({ item }) => {
             </Text>
             {/* <Text style={{ paddingTop: 10, fontSize: 14, }} > Source Credit: XYZ news</Text> */}
 
-            <TouchableOpacity style={styles.button} onPress={() => goToDetailsScreen(item)}>
+            {/* <TouchableOpacity style={styles.button} onPress={() => goToDetailsScreen(item)}>
                 <Text style={styles.buttonText}>Details</Text>
                 <MaterialCommunityIcons name="arrow-right" size={24} color="green" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     )
 }
